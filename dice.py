@@ -1,7 +1,10 @@
-import random
+from random import *
+from  tkinter import *
+nums = []
 
-rolls = []
-for x in rolls:
-    rolls[x] = random.randint(1,6)
+def roll_dice(sides, rolls):
+    for i in range(rolls):
+        nums.append(randint(1,sides))
+    print(nums)
 
-print(rolls)
+roll_dice(6,4)

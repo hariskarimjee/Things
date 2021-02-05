@@ -5,7 +5,7 @@ from random import *
 import time
 
 R = 5e7    #radius of torus centroid
-r = 5e6    #radius of torus tube
+r = 1e7    #radius of torus tube
 limits = R + r
 G = 6.674e-11 #graviational constantt = 0
 
@@ -25,8 +25,6 @@ print(object)
 time.sleep(1)
 
 
-
-
 def in_torus(location):
     x,y,z = location[0], location[1], location[2]
     if (((x**2 + y**2)**0.5 - R)**2 + z**2) <= r**2: return True
@@ -42,8 +40,9 @@ def gravity(orbiter, particle):
 
 def get_force(orbiter, body_particles):
     force = np.zeros(3)
-    for particle in body_particles:
+    for num,particle in enumerate(body_particles):
         force += gravity(orbiter, particle)
+        print(num)
     # print(force)
     return force
        
